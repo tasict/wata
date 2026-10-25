@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["55RDET4W7X.cc.ctsite.wata"],
+        "components": [
+          { "/": "/t/*", "comment": "NFC stickers paired in Wata" }
+        ]
+      }
+    ]
+  }
+}
