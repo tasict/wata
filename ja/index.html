@@ -49,7 +49,7 @@
       <h1>かざして、
 一杯記録。</h1>
       <p class="lede">ボトルに NFC ステッカーを貼って iPhone をかざし、出てきたバナーをタップすれば、App を探さなくても水分がヘルスケアに入ります。Wata は時計ではなく、今日あとどれだけ飲むかでお知らせします。本物のようなグラスの中に住んでいて、iPhone を揺らすと水も揺れます。</p>
-      <p class="store"><a href="https://apps.apple.com/app/id6826999730"><picture><source srcset="../assets/badges/ja-dark.svg" media="(prefers-color-scheme: dark)"><img src="../assets/badges/ja.svg" width="109" height="40" alt="App Store からダウンロード"></picture></a></p>
+      <p class="store"><a href="https://apps.apple.com/jp/app/id6826999730" data-store><picture><source srcset="../assets/badges/ja-dark.svg" media="(prefers-color-scheme: dark)"><img src="../assets/badges/ja.svg" width="109" height="40" alt="App Store からダウンロード"></picture></a></p>
       <p class="fineprint">バージョン <span class="app-version">1.0.0</span> · iPhone XS 以降（iOS 18）· Apple Watch（watchOS 11）</p>
     </div>
     <figure class="device"><img src="../assets/screens/ja/today.jpg" width="603" height="1311" alt="Wata の今日の画面：水の入ったグラスに Wata が浮かび、2,100 mL のうち 1,250 mL、下にクイック量のボタン"></figure>
@@ -146,6 +146,19 @@
   </div>
 </section>
 </main>
+<script>
+(function () {
+  var sold = " ae af ag ai al am ao ar au az ba bb bf bh bj bm bn bo br bs bt bw by bz ca cd cg ch ci cl cm cn co cr cv dm do dz ec eg fj fm ga gb gd ge gh gm gt gw gy hk hn id il in iq is jm jo jp ke kg kh kn kr kw ky kz la lb lc lk lr ly ma md me mg mk ml mm mn mo mr ms mu mv mw mx my mz na ne ng ni no np nr nz om pa pe pg ph pk pw py qa rs ru rw sa sb sc sg sl sn sr st sv sz tc td th tj tm tn to tr tt tw tz ua ug us uy uz ve vg vn vu ye za zm zw ";
+  var byLanguage = { en: "us", zh: "tw", ja: "jp", ko: "kr", es: "mx" };
+  var tag = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-");
+  var country = tag.slice(1).filter(function (part) { return part.length === 2; })[0];
+  var store = country && sold.indexOf(" " + country + " ") >= 0 ? country : byLanguage[tag[0]];
+  if (!store) return;
+  document.querySelectorAll("a[data-store]").forEach(function (link) {
+    link.href = "https://apps.apple.com/" + store + "/app/id6826999730";
+  });
+})();
+</script>
 <footer class="site-footer">
   <div class="wrap">
     <p class="disclaimer">医療上の助言ではありません。Wata の目標や提案は、健康な成人向けの一般的な目安です。腎臓や心臓に持病がある方、妊娠中・授乳中の方、体内の水分に影響する薬を服用中の方、少しでも不安がある方は、どれだけ飲めばよいか医師に相談してください。</p>

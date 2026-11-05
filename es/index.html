@@ -49,7 +49,7 @@
       <h1>Móvil a la botella.
 Vaso registrado.</h1>
       <p class="lede">Pon una pegatina NFC en tu botella. Acerca el iPhone, toca el aviso que aparece y el agua queda en Salud sin buscar la app. Wata te avisa según lo que te falta por beber, no según el reloj, y vive en un vaso de verdad que se agita cuando mueves el teléfono.</p>
-      <p class="store"><a href="https://apps.apple.com/app/id6826999730"><picture><source srcset="../assets/badges/es-dark.svg" media="(prefers-color-scheme: dark)"><img src="../assets/badges/es.svg" width="120" height="40" alt="Descárgalo en el App Store"></picture></a></p>
+      <p class="store"><a href="https://apps.apple.com/mx/app/id6826999730" data-store><picture><source srcset="../assets/badges/es-dark.svg" media="(prefers-color-scheme: dark)"><img src="../assets/badges/es.svg" width="120" height="40" alt="Descárgalo en el App Store"></picture></a></p>
       <p class="fineprint">Versión <span class="app-version">1.0.0</span> · iPhone XS o posterior con iOS 18 · Apple Watch con watchOS 11</p>
     </div>
     <figure class="device"><img src="../assets/screens/es/today.jpg" width="603" height="1311" alt="La pantalla Hoy de Wata: un vaso de agua con Wata flotando, 1250 de 2100 mL, y cantidades rápidas debajo"></figure>
@@ -146,6 +146,19 @@ Vaso registrado.</h1>
   </div>
 </section>
 </main>
+<script>
+(function () {
+  var sold = " ae af ag ai al am ao ar au az ba bb bf bh bj bm bn bo br bs bt bw by bz ca cd cg ch ci cl cm cn co cr cv dm do dz ec eg fj fm ga gb gd ge gh gm gt gw gy hk hn id il in iq is jm jo jp ke kg kh kn kr kw ky kz la lb lc lk lr ly ma md me mg mk ml mm mn mo mr ms mu mv mw mx my mz na ne ng ni no np nr nz om pa pe pg ph pk pw py qa rs ru rw sa sb sc sg sl sn sr st sv sz tc td th tj tm tn to tr tt tw tz ua ug us uy uz ve vg vn vu ye za zm zw ";
+  var byLanguage = { en: "us", zh: "tw", ja: "jp", ko: "kr", es: "mx" };
+  var tag = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-");
+  var country = tag.slice(1).filter(function (part) { return part.length === 2; })[0];
+  var store = country && sold.indexOf(" " + country + " ") >= 0 ? country : byLanguage[tag[0]];
+  if (!store) return;
+  document.querySelectorAll("a[data-store]").forEach(function (link) {
+    link.href = "https://apps.apple.com/" + store + "/app/id6826999730";
+  });
+})();
+</script>
 <footer class="site-footer">
   <div class="wrap">
     <p class="disclaimer">No es consejo médico. El objetivo y las sugerencias de Wata son una guía general para adultos sanos. Si tienes una enfermedad renal o cardíaca, estás embarazada o en periodo de lactancia, tomas medicamentos que afectan a cómo tu cuerpo maneja el agua, o tienes cualquier duda, pregunta a tu médico cuánto beber.</p>

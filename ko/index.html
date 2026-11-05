@@ -49,7 +49,7 @@
       <h1>물병에 대면,
 한 잔 기록.</h1>
       <p class="lede">물병에 NFC 스티커를 붙이세요. iPhone을 대고 나타나는 배너를 탭하면, 앱을 찾지 않아도 마신 물이 건강 앱에 들어가요. Wata는 시계가 아니라 오늘 남은 양을 보고 알려 줘요. 진짜 같은 물잔 속에 살고 있어서, 휴대폰을 흔들면 물도 출렁여요.</p>
-      <p class="store"><a href="https://apps.apple.com/app/id6826999730"><picture><source srcset="../assets/badges/ko-dark.svg" media="(prefers-color-scheme: dark)"><img src="../assets/badges/ko.svg" width="130" height="40" alt="App Store에서 다운로드하기"></picture></a></p>
+      <p class="store"><a href="https://apps.apple.com/kr/app/id6826999730" data-store><picture><source srcset="../assets/badges/ko-dark.svg" media="(prefers-color-scheme: dark)"><img src="../assets/badges/ko.svg" width="130" height="40" alt="App Store에서 다운로드하기"></picture></a></p>
       <p class="fineprint">버전 <span class="app-version">1.0.0</span> · iOS 18의 iPhone XS 이후 모델 · watchOS 11의 Apple Watch</p>
     </div>
     <figure class="device"><img src="../assets/screens/ko/today.jpg" width="603" height="1311" alt="Wata의 오늘 화면: 물잔에 Wata가 떠 있고, 2,100 mL 중 1,250 mL, 아래에 빠른 양 버튼"></figure>
@@ -146,6 +146,19 @@
   </div>
 </section>
 </main>
+<script>
+(function () {
+  var sold = " ae af ag ai al am ao ar au az ba bb bf bh bj bm bn bo br bs bt bw by bz ca cd cg ch ci cl cm cn co cr cv dm do dz ec eg fj fm ga gb gd ge gh gm gt gw gy hk hn id il in iq is jm jo jp ke kg kh kn kr kw ky kz la lb lc lk lr ly ma md me mg mk ml mm mn mo mr ms mu mv mw mx my mz na ne ng ni no np nr nz om pa pe pg ph pk pw py qa rs ru rw sa sb sc sg sl sn sr st sv sz tc td th tj tm tn to tr tt tw tz ua ug us uy uz ve vg vn vu ye za zm zw ";
+  var byLanguage = { en: "us", zh: "tw", ja: "jp", ko: "kr", es: "mx" };
+  var tag = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-");
+  var country = tag.slice(1).filter(function (part) { return part.length === 2; })[0];
+  var store = country && sold.indexOf(" " + country + " ") >= 0 ? country : byLanguage[tag[0]];
+  if (!store) return;
+  document.querySelectorAll("a[data-store]").forEach(function (link) {
+    link.href = "https://apps.apple.com/" + store + "/app/id6826999730";
+  });
+})();
+</script>
 <footer class="site-footer">
   <div class="wrap">
     <p class="disclaimer">의학적 조언이 아닙니다. Wata의 목표와 제안은 건강한 성인을 위한 일반적인 안내입니다. 신장이나 심장 질환이 있거나, 임신 중이거나 수유 중이거나, 체내 수분에 영향을 주는 약을 복용 중이거나, 조금이라도 걱정된다면 얼마나 마셔야 할지 의사와 상담하세요.</p>
