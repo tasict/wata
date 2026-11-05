@@ -153,14 +153,10 @@ a:hover { text-decoration-thickness: 2px; }
 
 .lede { font-size: clamp(1.12rem, 1rem + 0.5vw, 1.35rem); line-height: 1.5; color: var(--muted); max-width: 30em; margin: 0 0 1.5rem; }
 
-.soon {
-  display: inline-block;
-  border: 2px dashed var(--water);
-  border-radius: 14px;
-  padding: 0.7rem 1.3rem;
-  font-weight: 600;
-  margin: 0 0 0.6rem;
-}
+/* Apple's badge, as it comes: at least 40px tall, nothing drawn on it. */
+.store { margin: 0 0 0.8rem; }
+.store a { display: inline-block; border-radius: 9px; }
+.store img { height: 3.25rem; width: auto; }
 .fineprint { color: var(--muted); font-size: 0.92rem; margin: 0; }
 
 .device { margin: 0 auto; max-width: 21rem; }

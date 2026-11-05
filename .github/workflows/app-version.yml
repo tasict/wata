@@ -1,0 +1,36 @@
+name: App Store version
+
+# Keeps the version on the pages the same as the App Store's.
+# Run it by hand from the Actions tab right after a release.
+on:
+  schedule:
+    - cron: "17 */4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/app-version.yml, .github/app-version.sh]
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency: app-version
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - id: check
+        run: bash .github/app-version.sh
+      - if: steps.check.outputs.version
+        env:
+          VERSION: ${{ steps.check.outputs.version }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Version $VERSION on the App Store"
+          git push
+          # A push made with this token may not start a Pages build on its own.
+          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" || true
