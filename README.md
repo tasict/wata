@@ -17,6 +17,6 @@ Issues are public, so leave out anything you would not want others to read.
 
 ## The website
 
-Plain static HTML, served by GitHub Pages at <https://wata.ctsite.cc/>. There is no build step: what is in this repository is what the site serves. A scheduled workflow (`.github/workflows/app-version.yml`) checks the App Store every few hours and, when a new version is out, writes its number into `version.json` and the pages.
+Plain static HTML, served by Cloudflare Pages at <https://wata.ctsite.cc/>. There is no build step: what is in this repository is what the site serves. A scheduled workflow (`.github/workflows/app-version.yml`) checks the App Store every few hours and, when a new version is out, writes its number into `version.json` and the pages.
 
 © 2026 tasict
